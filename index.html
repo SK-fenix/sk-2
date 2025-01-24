@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="styles.css">
+	<title></title>
+</head>
+<body>
+    <script type="module">
+      let mapping = [
+        [ 'q7', 'q7' ],
+        [ 'r6', 'r6' ],
+        [ 'r7', 'r7' ],
+        [ 'r8', 'r8' ],
+        [ 's8', 's8' ],
+        [ 's7', 's7' ],
+        ['q10','q10'],
+        ['q11','q11'],
+        ['q12','q12'],
+        ['q13','q13'],
+        //['r11','r11'],
+        //['r12','r12'],
+        //['r13','r13'],
+        [ 'q20', 'q20' ],
+        [ 'q21', 'q21' ],
+        [ 'q22', 'q22' ],
+        [ 'q23', 'q23' ],
+        [ 'r21', 'r21' ],
+        [ 'r22', 'r22' ],
+        [ 'r23', 'r23' ],
+        ['q15','q15'],
+        ['q16','q16'],
+        ['q17','q17'],
+        ['q18','q18'],
+        ['r16','r16'],
+        ['r17','r17'],
+        ['r18','r18'],
+        ['s17','s17'],
+        ['s18','s18'],
+        ['q25','q25'],
+        ['q26','q26'],
+        ['q27','q27'],
+        ['q28','q28'],
+        ['r26','r26'],
+        ['r27','r27'],
+        ['r28','r28'],
+        ['q30','q30'],
+	      ['q31','q31'],
+	      ['q32','q32'],
+	      ['q33','q33'],
+	      ['r31','r31'],
+	      ['r32','r32'],
+	      ['r33','r33'],
+
+      ]
+
+      let request = []
+
+      for (let [_, cell] of mapping) request.push(cell)
+
+      let request_json = JSON.stringify(request)
+
+      let deployment_url = 'https://script.google.com/macros/s/AKfycbzyzZVFiD-QG8Orn9rlEMS67YiHFVL3X6p4PXcbZ1gQ6YSO0ERkUHMIDJ3WfCcP3msfvg/exec'
+
+      let response = JSON.parse(await (await fetch(deployment_url, {
+        method: 'post',
+        body: JSON.stringify(request),
+      })).text())
+
+      let result = {}
+
+      let i = 0
+
+      for (let [name] of mapping) {
+        result[name] = response[i]
+        i++
+      }
+
+
+      q7.innerText = result.q7
+      r6.innerText = result.r6
+      r7.innerText = result.r7
+      r8.innerText = result.r8
+      s8.innerText = result.s8
+      s7.innerText = result.s7
+      q10.innerText = result.q10
+      q11.innerText = result.q11
+      q12.innerText = result.q12
+      q13.innerText = result.q13
+      //r11.innerText = result.r11
+      //r12.innerText = result.r12
+      //r13.innerText = result.r13
+      q15.innerText = result.q15
+      q16.innerText = result.q16
+      q17.innerText = result.q17
+      q18.innerText = result.q18
+      r16.innerText = result.r16
+      r17.innerText = result.r17
+      r18.innerText = result.r18
+      s17.innerText = result.s17
+      s18.innerText = result.s18
+      q20.innerText = result.q20
+      q21.innerText = result.q21
+      q22.innerText = result.q22
+      q23.innerText = result.q23
+      r21.innerText = result.r21
+      r22.innerText = result.r22
+      r23.innerText = result.r23
+      q25.innerText = result.q25
+      q26.innerText = result.q26
+      q27.innerText = result.q27
+      q28.innerText = result.q28
+      r26.innerText = result.r26
+      r27.innerText = result.r27
+      r28.innerText = result.r28
+      q30.innerText = result.q30
+      q31.innerText = result.q31
+      q32.innerText = result.q32
+      q33.innerText = result.q33
+      r31.innerText = result.r31
+      r32.innerText = result.r32
+      r33.innerText = result.r33
+    </script>
+<!--
+	<div class="page1">	
+		<div class="markup1">
+			<div class="container">
+				<div class="character">
+					<img class="face" src="">
+					<div class="name">
+						Крылов Кирилл Дмитриевич
+					</div>
+					<div class="lightblue1">
+						<div class="hat">
+							Руководитель отдела продаж
+						</div>
+					</div>
+					<div class="description">
+						Описание того, чем пост занимается 	как на сайте
+				</div>
+					<div class="post">
+						<div class="post-text">
+						Руководитель
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="markup2">
+			<div class="container1">
+				<div class="section">
+					Отдел продажи чистовых материалов	
+				</div>
+				<div class="rotations">
+					Обороты отдела	
+				</div>
+				<div class="money">
+					<div class="money1">	
+						<div class="lightblue">
+							<div class="countmoney">
+								12000000
+							</div>
+						</div>
+						<div class="per">
+							за этот месяц
+						</div>
+					</div>
+				</div>
+					*/
+				</div>
+			</div>
+		</div>
+	</div>
+    -->
+  <div class="el1">   <!--- компания --->
+		<div class="company-content">
+			<div class="cbox1">
+				<div class="cbox1-text" >
+					Компания ведет
+				</div>
+				<div class="created" id="q7"></div>
+			</div>
+			<div class="cbox2">
+				<div class="cbox2box">
+					<div class="permonth" id="r6"></div>
+				</div>
+				<div class="cbox2box2">
+					<div class="cbox2-box">
+						<div class="cbox2-box-blueborder">
+							<div class="cbox2-box-blueborder-text" id="r7"></div>
+						</div>
+						<div class="cbox2-box-text" id="r8"></div>
+					</div>
+					<div class="cbox2-box">
+						<div class="cbox2-box-blueborder">
+							<div class="cbox2-box-blueborder-text" id="s7"></div>
+						</div>
+						<div class="cbox2-box-text" id="s8"></div>
+					</div>						
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+  <div class="el2">   <!--- колл центр --->
+  	<div class="p3b">
+			<div class="character-card">
+				<div class="character-card-data">
+					<img class="character-img" src="img/DAA.jpg">
+					<div class="character-card-name">Дьячук Александр Александрович</div>
+					<div class="character-card-blue">Руководитель колл-центра</div>
+					<div class="character-card-description"></div>
+				</div>
+				<div class="character-card-button">
+					Руководитель
+				</div>
+			</div>
+			<div class="p3b2">
+				<div class="divison" id="q10"></div>
+				<div class="sample-box1">
+					<div class="p3b2-designs" id="q11"></div>
+					<div class="p3b2-quantity" id="q12"></div>
+					<div class="p3b2-designs-per" id="q13"></div>
+														<!---</div>
+															<div class="sample-box">
+																<div class="p3b2-designs" id="r11"></div>
+																<div class="p3b2-quantity" id="r12"></div>
+																<div class="p3b2-designs-per" id="r13"></div>	</div>
+															</div> --->
+				</div>
+			</div>
+		</div>
+  </div>
+
+
+
+  <div class="el3">   <!--- Отдел продаж --->
+  	<div class="p3b">
+			<div class="character-card">
+				<div class="character-card-data">
+					<img class="character-img" src="img/KAO.jpg">
+					<div class="character-card-name">Кошельков Антон Олегович</div>
+					<div class="character-card-blue">Руководитель отдела продаж</div>
+					<div class="character-card-description"></div>
+				</div>
+				<div class="character-card-button">
+					Руководитель
+				</div>
+			</div>
+			<div class="p3b2">
+				<div class="divison" id="q30">отдел продаж</div>
+					<div class="sample-box">
+						<div class="p3b2-designs" id="q31">Количество выданных объектов</div>
+						<div class="p3b2-quantity" id="q32">300</div>
+						<div class="p3b2-designs-per" id="q33">за этот месяц</div>
+					</div>
+					<div class="sample-box">
+						<div class="p3b2-designs" id="r31">Количество выданных объектов</div>
+						<div class="p3b2-quantity" id="r32">300</div>
+						<div class="p3b2-designs-per" id="r33">за этот месяц</div>	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+
+  <div class="el4">     <!--- HR --->
+  	<div class="p3b">
+			<div class="character-card">
+				<div class="character-card-data">
+					<img class="character-img" src="img/KEG.jpg">
+					<div class="character-card-name">Копацкая Екатерина Геннадьевна</div>
+					<div class="character-card-blue">Руководитель HR-отдела</div>
+					<div class="character-card-description"></div>
+				</div>
+				<div class="character-card-button">
+					Руководитель
+				</div>
+			</div>
+			<div class="p3b2">
+					<div class="divison" id="q25"></div>
+					<div class="sample-box">
+						<div class="p3b2-designs" id="q26"></div>
+						<div class="p3b2-quantity" id="q27"></div>
+						<div class="p3b2-designs-per" id="q28"></div>
+					</div>
+					<div class="sample-box">
+						<div class="p3b2-designs" id="r26"></div>
+						<div class="p3b2-quantity" id="r27"></div>
+						<div class="p3b2-designs-per" id="r28"></div>	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+
+  <div class="el5">
+		
+		<div class="p3b">    <!--- снабжение --->
+			<div class="character-card">
+				<div class="character-card-data">
+					<img class="character-img" src="img/KKD.png">
+					<div class="character-card-name">Крылов Кирилл Дмитриевич</div>
+					<div class="character-card-blue">Руководитель отдела чистовых материалов</div>
+					<div class="character-card-description"></div>
+				</div>
+				<div class="character-card-button">
+					Руководитель
+				</div>
+			</div>
+			<div class="p3b2">
+				<div class="divison" id="q20">Отдел снабжения</div>
+				<div class="sample-box">
+					<div class="p3b2-designs" id="q21">Обороты</div>
+					<div class="p3b2-quantity" id="q22">1200000</div>
+					<div class="p3b2-designs-per" id="q23">за этот месяц</div>
+				</div>
+					<div class="sample-box">
+						<div class="p3b2-designs" id="r21">Количество выданных объектов</div>
+						<div class="p3b2-quantity" id="r22">300</div>
+						<div class="p3b2-designs-per" id="r23">за этот месяц</div>	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+
+	
+	<div class="el6">     <!--- дизайн --->
+		
+		<div class="p3b">
+			<div class="character-card">
+				<div class="character-card-data">
+					<img class="character-img" src="img/KKD.png">
+					<div class="character-card-name">Злата</div>
+					<div class="character-card-blue">Руководитель отдела дизайна</div>
+					<div class="character-card-description"></div>
+				</div>
+				<div class="character-card-button">
+					Руководитель
+				</div>
+			</div>
+			<div class="p3b2">
+				<div class="divison" id="q15"></div>
+				<div class="sample-box">
+					<div class="p3b2-designs" id="q16"></div>
+					<div class="p3b2-quantity" id="q17"></div>
+					<div class="p3b2-designs-per" id="q18"></div>
+				</div>
+				<div class="sample-box">
+					<div class="p3b2-new-quantity" id="r16"></div>
+					<div class="p3b2-split">
+						<div class="p3b2-concluded">
+							<div class="p3b2-concluded-count" id="r17"></div>
+							<div class="p3b2-concluded-text" id="r18"></div>
+						</div>
+						<div class="p3b2-concluded">
+							<div class="p3b2-concluded-count" id="s17"></div>
+							<div class="p3b2-concluded-text"id="s18"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var indexValue = 0;
+		function SlideShow(){
+				setTimeout(SlideShow, 7000);
+				var el = [document.getElementsByClassName('el1')[0],
+				document.getElementsByClassName('el2')[0],
+				document.getElementsByClassName('el3')[0],
+				document.getElementsByClassName('el4')[0],
+				document.getElementsByClassName('el5')[0],
+				document.getElementsByClassName('el6')[0]]
+				for(i = 0; i < el.length; i++){
+					el[i].style.display = "none";	
+				}
+		indexValue++;
+		if(indexValue > el.length){indexValue = 1}
+		el[indexValue -1].style.display = "flex";
+		}
+		SlideShow(); 
+	</script>
+
+
+
+	
+</body>
+</html>
